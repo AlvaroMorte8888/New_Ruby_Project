@@ -7,6 +7,14 @@
     box-sizing: border-box;
 }
 
+.debug_dump { 
+    clear: both; 
+    float: left; 
+    width: 100%; 
+    margin-top: 45px;
+    @include box_sizing;
+}
+
 body {
     padding-top: 60px;
 }    
@@ -136,6 +144,18 @@ footer {
         }
     }    
 
+}
+
+/* формы */
+input, textarea, select, .uneditable-input { 
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;   
+    @include box_sizing;
+}
+
+input {
+    height: auto !important;
 }
 
 .debug_dump { 
