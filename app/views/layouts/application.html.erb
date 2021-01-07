@@ -10,9 +10,12 @@
   <body>
     <%= render 'layouts/header' %> 
       <div class="container">
-        <%= yield %> 
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+          <%= yield %> 
         <%= render 'layouts/footer' %>
-        <%= debug(params) if Rails.env.development? %> <!-- разрешающая вывод отладочной информации только в окружении разработки – одном из трех окружений, по умолчанию определенных в Rails -->
+        <%= debug(params) if Rails.env.development? %> <!-- разрешающая вывод отладочной информации только в окружении разработки – одном из трех окружений, по умолчанию определенных в Rails ->
       </div>
   </body> 
 </html>
