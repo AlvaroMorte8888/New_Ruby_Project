@@ -7,9 +7,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password]) # && - это синтаксис Ruby и обознаечает "и"
       # Осуществить вход пользователя и переадресовать на страницу профиля. 
     else
-      # Создать сообщение об ошибке.
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new' 
     end
   end
+
+  def destroy
+  end  
 end
