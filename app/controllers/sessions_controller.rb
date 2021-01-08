@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # Осуществить вход пользователя и переадресовать на страницу профиля. 
     else
       # Создать сообщение об ошибке.
-      flash[:danger] = 'Invalid email/password combination' # Изображает ошибку при входе, если ничего не вводить!!
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new' 
     end
   end
