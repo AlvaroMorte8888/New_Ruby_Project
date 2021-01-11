@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }
 
     # Возвращает дайджест для указанной строки. 
-    def User.digest(string)
+    def self.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? 
             BCrypt::Engine::MIN_COST :
             BCrypt::Engine.cost 
@@ -20,7 +20,7 @@ class User < ApplicationRecord
     end
     
     # Возвращает случайный токен.
-    def User.new_token
+    def self.new_token
         SecureRandom.urlsafe_base64
     end    
 
