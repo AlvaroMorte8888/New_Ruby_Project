@@ -11,6 +11,7 @@ class User < ApplicationRecord
     has_secure_password                        
     validates :password, length: { minimum: 6 }
 
+    class << self
     # Возвращает дайджест для указанной строки. 
     def self.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? 
@@ -20,7 +21,7 @@ class User < ApplicationRecord
     end
     
     # Возвращает случайный токен.
-    def self.new_token
+    def new_token
         SecureRandom.urlsafe_base64
     end    
 
