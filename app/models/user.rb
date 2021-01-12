@@ -9,11 +9,10 @@ class User < ApplicationRecord
                             uniqueness: { case_sensitive: false }
 
     has_secure_password                        
-    validates :password, length: { minimum: 6 }
+    validates :password, length: { minimum: 6 }, allow_blank: true
 
-    class << self
     # Возвращает дайджест для указанной строки. 
-    def self.digest(string)
+    def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? 
             BCrypt::Engine::MIN_COST :
             BCrypt::Engine.cost 
@@ -21,7 +20,7 @@ class User < ApplicationRecord
     end
     
     # Возвращает случайный токен.
-    def new_token
+    def User.new_token
         SecureRandom.urlsafe_base64
     end    
 

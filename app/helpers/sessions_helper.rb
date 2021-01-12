@@ -35,7 +35,6 @@ module SessionsHelper
         cookies.delete(:user_id) 
         cookies.delete(:remember_token)
     end
-    
     # Осуществляет выход текущего пользователя. 
     def log_out
         session.delete(:user_id)
